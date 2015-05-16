@@ -1,0 +1,10 @@
+#ifdef __OBJC__
+#import <Cocoa/Cocoa.h>
+#endif
+
+static NSString *SLDisplayName(NSString *const str)
+{
+	NSString *displayName = nil;
+	if(LSCopyDisplayNameForURL((CFURLRef)[NSURL URLWithString:str], (CFStringRef *)&displayName) == noErr && displayName) return [displayName autorelease];
+	return [[NSFileManager defaultManager] displayNameAtPath:str];
+}

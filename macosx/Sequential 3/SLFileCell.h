@@ -1,0 +1,5 @@
+@interface SLFileCell : NSActionCell
+{
+}
+
+@end
